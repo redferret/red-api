@@ -12,7 +12,10 @@ class ServiceGenerator < Rails::Generators::NamedBase
 
     @api_dir_name = @api_name.underscore
 
-    service_dir_path = "app/services/#{@api_dir_name}/"
+    root_dir = "app/services/"
+    Dir.mkdir root_dir unless File.exist?(root_dir)
+
+    service_dir_path = "#{root_dir}#{@api_dir_name}/"
 
     Dir.mkdir service_dir_path unless File.exist?(service_dir_path)
     Dir.mkdir "#{service_dir_path}/api_calls" unless File.exist?("#{service_dir_path}/api_calls")

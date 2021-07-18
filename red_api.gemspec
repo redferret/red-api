@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name        = "red-api"
-  spec.version     = '0.1.2'
+  spec.version     = '0.1.5'
   spec.authors     = ["Richard DeSilvey"]
   spec.email       = ["rdesilvey@gmail.com"]
   spec.homepage    = "https://github.com/redferret/red-api"
@@ -8,10 +8,12 @@ Gem::Specification.new do |spec|
   spec.description = "Generate API service and endpoints for API consumption"
   spec.license     = "MIT"
 
-  spec.files = Dir["{lib}/**/*", "MIT-LICENSE", "README.md"]
+  spec.files = Dir["lib/**/*"] + ["README.md"]
 
-  spec.add_dependency "ruby", "~> 2.7.2"
+  spec.add_development_dependency('rails')
 
   spec.add_development_dependency "oj", '~> 3.12.1'
   spec.add_development_dependency "faraday", '~> 1.5.1'
+
+  spec.require_paths = ['lib']
 end
