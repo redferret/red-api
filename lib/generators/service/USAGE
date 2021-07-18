@@ -1,0 +1,8 @@
+Description:
+    Generates the framework for a basic API service your app consumes
+
+Example:
+    rails generate service ServiceName https://service/api/endpoint --key api_key env_key_name
+
+    This will create:
+        app/services/ServiceName

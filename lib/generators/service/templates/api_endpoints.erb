@@ -1,0 +1,5 @@
+Dir[Rails.root.join('app/services/<%= @api_dir_name%>/api_calls/*.rb')].each { |api_call| require api_call }
+
+class <%= @api_name.camelize%>::ApiEndpoints < <%= @api_name.camelize%>::Client
+  # API call modules
+end

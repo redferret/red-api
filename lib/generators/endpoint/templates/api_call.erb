@@ -1,0 +1,5 @@
+module <%= @api_name.camelize%>
+  def <%= @api_name.underscore%><%="(#{@method_params})" if @method_params.present?%>
+    request :<%= @method%>, <%= @api_name.underscore%>_endpoint<%="(#{@method_params})" if @method_params.present?%>, params: {}
+  end
+end
