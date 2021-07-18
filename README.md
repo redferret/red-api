@@ -24,4 +24,4 @@ gem 'oj'
 ```
 
 #### Testing
-The generator still needs tests and this is my first generator and I'm still learning how to write tests. If you wish to contribute before I get a chance to add tests please PR with tests and I'll review it.
+The generator still needs tests and this is my first generator and I'm still learning how to write tests. If you wish to contribute before I get a chance to add tests please PR with tests and I'll review it. Until then the gem won't be published until tests are written.
