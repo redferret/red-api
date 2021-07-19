@@ -1,6 +1,6 @@
 require_relative 'endpoint_helpers'
 
-class <%= @api_name.camelize%>::Client
+class <%=@full_api_reference%>::Client
   extend EndpointHelpers
 
   def self.client(params)

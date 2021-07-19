@@ -1,8 +1,15 @@
 Description:
-    Adds an endpoint api call to your generated API service with optional method params (not to be confused with the api endpoint params)
+    Adds an endpoint api call to your generated API service with optional endpoint method and endpoint helper method parameters
 
 Example:
-    rails generate endpoint ServiceName EndpointName /endpoint/#{param1}/#{param2} --method_params param1 param2
+    rails generate endpoint ServiceName version EndpointName /endpoint/#{param1}/#{param2} --method-params param1 param2 --helper-params param1 param2
+    
+    Simple Form:
+      rails generate endpoint ServiceName V1 EndpointName /endpoint
 
     This will create:
-        app/services/ServiceName/api_call/endpoint_name.rb
+        app/services/ServiceName/version/api_call/endpoint_name.rb
+
+    This will modify:
+        app/services/ServiceName/version/api_endpoints.rb
+        app/services/ServiceName/version/endpoint_helpers.rb

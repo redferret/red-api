@@ -1,0 +1,4 @@
+
+  def <%= @endpoint_name.underscore%>_endpoint<%="(#{@helper_params})" if @endpoint_params.present?%>
+    <%= "\"#{@endpoint}\".freeze" if @endpoint.present? %>
+  end
