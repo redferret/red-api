@@ -4,7 +4,9 @@ Description:
 Example:
     rails generate service ServiceName version https://service/api/endpoint/ --key api_key env_key_name
 
-    Simple Form 
+Simple Form:
+    rails generate service ServiceName V1 https://service/api/endpoint/
+
     This will create:
         app/services/ServiceName/version
         app/services/ServiceName/version/api_calls/
