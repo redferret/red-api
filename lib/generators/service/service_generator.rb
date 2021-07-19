@@ -15,16 +15,16 @@ class ServiceGenerator < Rails::Generators::NamedBase
     raise ArgumentError, 'Need to give the API endpoint URI e.g. https://api/' unless @api_endpoint.present?
 
     @full_api_reference = @api_name.camelize + '::' + @api_version.upcase
-    @api_endpoint = @api_endpoint << '/' unless @api_endpoint.last == '/'
+    @api_endpoint = @api_endpoint + '/' unless @api_endpoint.last == '/'
 
     root_dir = "app/services/"
     Dir.mkdir root_dir unless File.exist?(root_dir)
 
-    api_version_path = root_dir + @api_version.downcase + '/'
+    api_path = root_dir + @api_name.underscore + '/'
 
-    Dir.mkdir api_version_path unless File.exist?(api_version_path)
+    Dir.mkdir api_path unless File.exist?(api_path)
 
-    service_dir_path = api_version_path + api_name.underscore + '/'
+    service_dir_path = api_path + @api_version.downcase + '/'
 
     Dir.mkdir service_dir_path unless File.exist?(service_dir_path)
     Dir.mkdir "#{service_dir_path}/api_calls" unless File.exist?("#{service_dir_path}/api_calls")

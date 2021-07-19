@@ -1,8 +1,11 @@
 Description:
     Adds an endpoint api call to your generated API service with optional endpoint method and endpoint helper method parameters
 
+    --include-helper-params:
+      Will copy the --method-params given to your endpoint helper method to use in your endpoint URI path
+      
 Example:
-    rails generate endpoint ServiceName version EndpointName /endpoint/#{param1}/#{param2} --method-params param1 param2 --helper-params param1 param2
+    rails generate endpoint ServiceName version EndpointName /endpoint/#{param1}/#{param2} --method-params param1 param2 --include-helper-params
     
     Simple Form:
       rails generate endpoint ServiceName V1 EndpointName /endpoint

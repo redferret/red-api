@@ -1,4 +1,4 @@
-Dir[Rails.root.join('app/services/<%= @api_dir_name.underscore%>/<%=@api_version.downcase%>/api_calls/*.rb')].sort.each { |api_call| require api_call }
+Dir[Rails.root.join('app/services/<%= @api_name.underscore%>/<%=@api_version.downcase%>/api_calls/*.rb')].sort.each { |api_call| require api_call }
 
 class <%=@full_api_reference%>::ApiEndpoints < <%= @full_api_reference%>::Client
   # API call modules
