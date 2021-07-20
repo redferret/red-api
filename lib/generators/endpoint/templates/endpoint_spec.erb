@@ -1,5 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe <%=@endpoint_reference%> do
-  # API Endpoint tests
+  describe '<%=@endpoint_name.underscore%>' do
+    it 'returns expected data when successful' do
+      skip 'Write tests for <%=@endpoint_name.underscore%>'
+      <%='# Define endpoint parameters here' if @endpoint_params%>
+      response = <%=@full_endpoint_reference%><%="(#{@endpoint_params})" if @endpoint_params%>
+    end
+  end
 end
