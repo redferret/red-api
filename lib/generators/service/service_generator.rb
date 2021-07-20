@@ -2,17 +2,16 @@ class ServiceGenerator < Rails::Generators::NamedBase
   source_root File.expand_path('templates', __dir__)
 
   argument :version, type: :string
-  argument :api_endpoint, type: :string
+  class_option :api_endpoint, type: :string, default: 'https://'
   class_option :key, type: :array
 
   def create_api_service
     @api_name = file_name
     @api_version = version
-    @api_endpoint = api_endpoint
+    @api_endpoint = options[:api_endpoint]
     @env_var_opts = options[:key]
 
     raise ArgumentError, 'Need to give the API version' unless @api_version.present?
-    raise ArgumentError, 'Need to give the API endpoint URI e.g. https://api/' unless @api_endpoint.present?
 
     @full_api_reference = @api_name.camelize + '::' + @api_version.upcase
     @api_endpoint = @api_endpoint + '/' unless @api_endpoint.last == '/'

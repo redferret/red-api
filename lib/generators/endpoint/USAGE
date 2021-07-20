@@ -5,7 +5,7 @@ Description:
       Will copy the --method-params given to your endpoint helper method to use in your endpoint URI path
       
 Example:
-    rails generate endpoint ServiceName version EndpointName /endpoint/#{param1}/#{param2} --method-params param1 param2 --include-helper-params
+    rails generate endpoint ServiceName version EndpointName --endpoint /endpoint/#{param1}/#{param2} --endpoint-params param1 param2 --include-helper-params
     
     Simple Form:
       rails generate endpoint ServiceName V1 EndpointName /endpoint

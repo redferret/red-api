@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name        = "red-api"
-  spec.version     = '0.2.1'
+  spec.version     = '0.2.3'
   spec.authors     = ["Richard DeSilvey"]
   spec.email       = ["rdesilvey@gmail.com"]
   spec.homepage    = "https://github.com/redferret/red-api"
@@ -10,11 +10,10 @@ Gem::Specification.new do |spec|
 
   spec.files = Dir["lib/**/*"] + ["README.md"]
 
-  spec.add_development_dependency('rails')
+  spec.add_development_dependency('rails', '>= 5.2.5')
 
   spec.add_development_dependency "oj", '~> 3.12.1'
   spec.add_development_dependency "faraday", '~> 1.5.1'
-  spec.add_development_dependency "rspec"
 
   spec.require_paths = ['lib']
 end

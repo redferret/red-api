@@ -3,8 +3,8 @@ class EndpointGenerator < Rails::Generators::NamedBase
 
   argument :api_version, type: :string
   argument :endpoint_name, type: :string
-  argument :endpoint, type: :string
 
+  class_option :endpoint, type: :string, default: '/'
   class_option :method, type: :string, default: 'get'
   class_option :endpoint_params, type: :array
   class_option :include_helper_params
@@ -13,15 +13,17 @@ class EndpointGenerator < Rails::Generators::NamedBase
     @api_service = file_name.underscore
     @api_version = api_version
     @endpoint_name = endpoint_name
-    @endpoint = endpoint
+    @endpoint = options[:endpoint]
 
-    raise ArgumentError 'Endpoint name required' unless @endpoint_name
-    raise ArgumentError 'Endpoint is required' unless @endpoint
+    raise ArgumentError, 'Endpoint name required' unless @endpoint_name
+    raise ArgumentError, 'Version is required, e.g. V1' unless @api_version
+    raise ArgumentError, 'Version should not be included in your endpoint, generator will build it for you' if @endpoint.downcase.include?(@api_version.downcase)
 
     @endpoint_reference = @api_service.camelize + '::' + @api_version.camelize + '::ApiEndpoints'
     @full_endpoint_reference = @endpoint_reference + '.' + @endpoint_name.underscore
 
-    @endpoint = @endpoint[1..] unless @endpoint.first != '/'
+    @endpoint = '/' + @endpoint unless @endpoint.first == '/'
+    @endpoint = @api_version.downcase + @endpoint
     @method = options[:method].to_sym
 
     create_endpoint_params if options[:endpoint_params].present?
