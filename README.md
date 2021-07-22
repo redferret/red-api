@@ -7,11 +7,11 @@ This simple gem has two generators to support creating a basic API consumer fram
 
 #### Usage
 ```sh
-rails generate service ApiName https://service/endpoint/ --key api_key service_api_key_env_name
-rails generate endpoint ServiceName EndpointName /endpoint/#{param1}/#{param2} --method_params param1 param2
+rails generate service ApiName Version --endpoint https://service/endpoint/ --key api_key service_api_key_env_name
+rails generate endpoint ServiceName Version EndpointName --endpoint /endpoint/#{param1}/#{param2} --method-params param1 param2 --include-helper-params
 ```
 The service generator will setup the framework which uses Faraday for your http calls and Oj gem for faster json parsing.
-The endpoint generator will setup an endpoint with an endpoint helper method for easier testing.
+The endpoint generator will setup an endpoint with an endpoint helper method for easier testing and adds a spec file.
 
 #### Installation
 ```ruby
@@ -21,6 +21,7 @@ gem 'red-api'
 ```ruby
 gem 'faraday'
 gem 'oj'
+gem 'rspec-rails
 ```
 
 #### Testing

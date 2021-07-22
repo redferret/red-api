@@ -8,10 +8,11 @@ Example:
     rails generate endpoint ServiceName version EndpointName --endpoint /endpoint/#{param1}/#{param2} --endpoint-params param1 param2 --include-helper-params
     
     Simple Form:
-      rails generate endpoint ServiceName V1 EndpointName /endpoint
+      rails generate endpoint ServiceName V1 EndpointName
 
     This will create:
         app/services/ServiceName/version/api_call/endpoint_name.rb
+        with the endpoint being /v1/ if no endpoint is given
 
     This will modify:
         app/services/ServiceName/version/api_endpoints.rb
