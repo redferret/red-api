@@ -1,7 +1,7 @@
 module EndpointHelpers
-  def api_endpoint
+  def <%=@api_name.underscore%>_api_endpoint
     # The http API endpoint for this service
-    <%= "'#{@api_endpoint}'.freeze" %>
+    <%= "'#{@api_endpoint}'" %>
   end
 
   # API Endpoint Helpers

@@ -6,7 +6,7 @@ class <%=@full_api_reference%>::Client
   def self.client(params)
     <% if @env_var_opts.present? %><%= "params[:#{@env_var_opts.first.underscore.downcase}] = ENV['#{@env_var_opts.last.underscore.upcase}']"%><% else %># Additional params can be added here<% end %>
     Faraday.new(
-      url: api_endpoint,
+      url: <%=@api_name.underscore%>_api_endpoint,
       params: params
     )
   end
