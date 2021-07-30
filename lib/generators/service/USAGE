@@ -2,10 +2,10 @@ Description:
     Generates the framework for a basic API service your app consumes
 
 Example:
-    rails generate service ServiceName version --endpoint https://service/api/endpoint/ --key api_key env_key_name
+    rails generate service ServiceName version --api-endpoint https://service/api/endpoint/ --key api_key env_key_name
 
 Simple Form:
-    rails generate service ServiceName V1 --endpoint https://service/api/endpoint/
+    rails generate service ServiceName V1 --api-endpoint https://service/api/endpoint/
 
     Not supplying an endpoint will default to https://
 
